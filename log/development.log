@@ -2271,3 +2271,29 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 80ms (Views: 66.2ms | ActiveRecord: 0.8ms | Allocations: 45392)
 
 
+Started GET "/" for ::1 at 2023-12-13 12:28:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:4
+  Rendered projects/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 5526)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 40404)
+Completed 200 OK in 100ms (Views: 85.1ms | ActiveRecord: 1.0ms | Allocations: 46378)
+
+
+Started GET "/projects/1" for ::1 at 2023-12-13 12:28:22 +0100
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = ?[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:13
+  Rendered projects/show.html.erb within layouts/application (Duration: 27.0ms | Allocations: 10913)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 13011)
+Completed 200 OK in 34ms (Views: 29.1ms | ActiveRecord: 1.1ms | Allocations: 15622)
+
+
